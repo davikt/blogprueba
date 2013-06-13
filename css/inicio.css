@@ -1,1 +1,94 @@
-
+@media screen {
+    
+    /**
+     * ==================================================
+     * Reglas CSS generales de la página
+     * ==================================================
+     */
+    
+    #cuerpo {
+        margin:0 auto 0 auto;
+	width:800px;
+    }
+    
+    #losPosts {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .post {
+        border: solid lightblue 4px;
+        border-radius: 14px;
+        height: 150px;
+        text-align: justify;
+        color:rgb(110,110,110);
+        margin-top: 30px;
+    }
+    
+    /**
+     * ==================================================
+     * Estilos para los meta-datos del post
+     * ==================================================
+     */
+    
+    .postInfo {
+        float:left;
+        height: 100%;
+        width: 117px;
+        background-image: url('/img/bg-post-info.png');
+        text-align: center;
+        border-top-left-radius: 9px;
+        border-bottom-left-radius: 9px;
+    }
+    
+    .postInfo .dia {
+        margin-top: 20px;
+        margin-left: -30px;
+        font-weight:bold;
+        font-size: 16px;
+    }
+    
+    .postInfo .mes {
+        margin-top: 10px;
+        margin-left: -30px;
+        font-weight: bold;
+        font-size: 16px;
+    }
+    
+    .postInfo .botonEditar {
+        position: relative;
+        top: 40px;
+        margin-left: -30px;
+    }
+    
+    /**
+     * ==================================================
+     * Estilos para el contenido del post 
+     * (lo que se publique)
+     * ==================================================
+     */
+    
+    .postTexto {
+        float:right;
+        width:659px;
+        height:90%;
+        padding:1%;
+    }
+    
+    .postTexto .mensaje {
+        font-size: 14px;
+    }
+    
+    .postTexto .dispositivo {
+        float:right;
+        font-size: 10px;
+    }
+}
+ 
+@media screen and (max-width:999px) {
+    /* segundo bloque (tablets y netbooks) */
+}
+ 
+@media screen and (max-width:480px) {
+    /* tercer bloque (smartphones) */
+}

@@ -3,22 +3,39 @@
 class Inicio extends CI_Controller {
     function index() {
         
-        require_once('./wurfl/TeraWurfl.php');
+        /**
+         * Cargamos las librerías de CodeIgniter necesarias.
+         *      - Wurfl
+         *      - Post
+         */
+        $this->load->library('wurfl');
+        $this->load->library('post');
         
-        // instantiate a new TeraWurfl object
-        $wurflObj = new TeraWurfl();
-  
-        // Get the capabilities of the current client.
-        $wurflObj->getDeviceCapabilitiesFromRequest();
+        /**
+         * Cargamos los modelos de CodeIgniter necesarios.
+         *      - PostsModel
+         */
+        $this->load->model('posts_model');
         
-        $device=$wurflObj->getDeviceCapability('brand_name');
-        $device.=" - ".$wurflObj->getDeviceCapability('model_name');
+        /**
+         * Alteramos el array de Posts devuelto para rellenar
+         * las propiedades dia y mes con respecto a fecha.
+         */
+        $losPosts = $this->posts_model->obtenerPosts("5");
+        
+        foreach($losPosts as $elPost) {
+            $elPost->setDia(date("j",strtotime($elPost->getFecha())));
+            $elPost->setMes(strtoupper(date("M",strtotime($elPost->getFecha()))));
+        }
         
         
+        /**
+         * Finalmente, enviamos la página al navegador.
+         */
         $setUpPage=array(
             'titulo' => 'Inicio',
             'css' => 'inicio.css',
-            'device' => $device
+            'posts' => $losPosts
         );
         
         $this->load->view('main_view', $setUpPage);

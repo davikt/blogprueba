@@ -19,6 +19,17 @@
         
     </head>
     <body>
-        <div><?=$device?></div>
+        <div id="cuerpo">
+            <div id="losPosts">
+                <?php 
+                    foreach($posts as $post) {
+                        $setUpPosts = array(
+                            'elPost' => $post
+                        );
+                        $this->load->view('un_post', $setUpPosts);
+                    }
+                ?>
+            </div>
+        </div>
     </body>
 </html>

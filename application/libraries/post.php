@@ -7,6 +7,14 @@ class Post {
     private $texto;
     private $autor;
     private $active;
+    private $dispositivo;
+    private $dia;
+    private $mes;
+    
+    /**
+     * Definiendo los Getters de las variables
+     * @return var
+     */
 
     public function getId() {
         return $this->id;
@@ -28,9 +36,25 @@ class Post {
         return $this->active;
     }
     
+    public function getDispositivo() {
+        return $this->dispositivo;
+    }
+    
+    public function getDia() {
+        return $this->dia;
+    }
+    
+    public function getMes() {
+        return $this->mes;
+    }
+    
+    /**
+     * Definiendo los Setters
+     * @param var
+     */
+    
     public function setId($id) {
-        //Id es de sólo lectura
-        return false;
+        $this->id=$id;
     }
     
     public function setFecha($fecha) {
@@ -48,6 +72,18 @@ class Post {
     public function setActive($active) {
         $this->active=$active;
     }
+    
+    public function setDispositivo($dispositivo) {
+        $this->dispositivo=$dispositivo;
+    }
+    
+    public function setDia($dia) {
+        $this->dia=$dia;
+    }
+    
+    public function setMes($mes) {
+        $this->mes=$mes;
+    }
 }
 
-/* End of file Someclass.php */
+/* End of file post.php */
