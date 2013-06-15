@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="Grammar.php" server="192.168.1.5//var/www/" local="130076623620000000" remote="130076623620000000" Dst="1" />
+<file name="Header.php" server="192.168.1.5//var/www/" local="130076623620000000" remote="130076623620000000" Dst="1" />
+<file name="Attachment.php" server="192.168.1.5//var/www/" local="130076623620000000" remote="130076623620000000" Dst="1" />
+<file name="SimpleHeaderFactory.php" server="192.168.1.5//var/www/" local="130076623620000000" remote="130076623620000000" Dst="1" />
+<file name="EncodingObserver.php" server="192.168.1.5//var/www/" local="130076623620000000" remote="130076623620000000" Dst="1" />
+<file name="MimePart.php" server="192.168.1.5//var/www/" local="130076623620000000" remote="130076623620000000" Dst="1" />
+<file name="HeaderEncoder.php" server="192.168.1.5//var/www/" local="130076623630000000" remote="130076623630000000" Dst="1" />
+<file name="Message.php" server="192.168.1.5//var/www/" local="130076623630000000" remote="130076623630000000" Dst="1" />
+<file name="MimeEntity.php" server="192.168.1.5//var/www/" local="130076623630000000" remote="130076623630000000" Dst="1" />
+<file name="CharsetObserver.php" server="192.168.1.5//var/www/" local="130076623630000000" remote="130076623630000000" Dst="1" />
+<file name="SimpleMessage.php" server="192.168.1.5//var/www/" local="130076623630000000" remote="130076623630000000" Dst="1" />
+<file name="ContentEncoder.php" server="192.168.1.5//var/www/" local="130076623630000000" remote="130076623630000000" Dst="1" />
+<file name="HeaderSet.php" server="192.168.1.5//var/www/" local="130076623630000000" remote="130076623630000000" Dst="1" />
+<file name="EmbeddedFile.php" server="192.168.1.5//var/www/" local="130076623630000000" remote="130076623630000000" Dst="1" />
+<file name="HeaderFactory.php" server="192.168.1.5//var/www/" local="130076623630000000" remote="130076623630000000" Dst="1" />
+<file name="ParameterizedHeader.php" server="192.168.1.5//var/www/" local="130076623640000000" remote="130076623640000000" Dst="1" />
+<file name="SimpleMimeEntity.php" server="192.168.1.5//var/www/" local="130076623640000000" remote="130076623640000000" Dst="1" />
+<file name="SimpleHeaderSet.php" server="192.168.1.5//var/www/" local="130076623640000000" remote="130076623640000000" Dst="1" />
+</dwsync>

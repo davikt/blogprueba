@@ -1,0 +1,1 @@
+<div data-role="page"><script>window.location.href="<?=$location?>"</script></div>

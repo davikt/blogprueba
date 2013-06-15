@@ -1,3 +1,10 @@
+/**
+ * ==================================================
+ * Estilos para el diálogo de Login
+ * ==================================================
+ */
+@import url('/css/login.css');
+
 @media screen {
     
     /**
@@ -5,6 +12,17 @@
      * Reglas CSS generales de la página
      * ==================================================
      */
+    
+    #main {
+        display:block;
+        background-color:rgb(231,231,231);
+        background-image: linear-gradient(white 2px, transparent 2px),
+            linear-gradient(90deg, white 2px, transparent 2px),
+            linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px);
+        background-size:100px 100px, 100px 100px, 20px 20px, 20px 20px;
+        background-position:-2px -2px, -2px -2px, -1px -1px, -1px -1px;
+    }
     
     #cuerpo {
         margin:0 auto 0 auto;
@@ -17,12 +35,74 @@
     }
     
     .post {
-        border: solid lightblue 4px;
+        border: solid lightblue 3px;
         border-radius: 14px;
         height: 150px;
         text-align: justify;
         color:rgb(110,110,110);
         margin-top: 30px;
+        -webkit-box-shadow: 0px 0px 10px rgba(175, 219, 233, 0.9);
+        -moz-box-shadow:    0px 0px 10px rgba(175, 219, 233, 0.9);
+        box-shadow:         0px 0px 10px rgba(175, 219, 233, 0.9);
+        background-color: #fff; 
+        background-image: 
+            linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
+            linear-gradient(#eee .1em, transparent .1em);
+        background-size: 100% 1.2em;
+        
+    }
+    
+    /**
+     * ==================================================
+     * Estilos para el menú del pié.
+     * ==================================================
+     */
+    
+    #botonLogin, #botonAdd, #botonHerramientas {
+        position: fixed;
+        width: 70px;
+        height: 70px;
+        bottom: 0px;
+        left: 50%;
+        background-color: orange;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        text-align: center;
+    }
+    
+    #botonLogin img, #botonAdd img, #botonHerramientas img {
+        margin-top: 3px;
+    }
+    
+    #botonLogin:hover {
+        height: 80px;
+        -webkit-box-shadow: 0px -2px 13px rgba(255, 165, 0, 0.9);
+        -moz-box-shadow:    0px -2px 13px rgba(255, 165, 0, 0.9);
+        box-shadow:         0px -2px 13px rgba(255, 165, 0, 0.9);
+    }
+    
+    #botonAdd:hover {
+        height: 80px;
+        -webkit-box-shadow: 0px -2px 13px rgba(0, 129, 0, 0.9);
+        -moz-box-shadow:    0px -2px 13px rgba(0, 129, 0, 0.9);
+        box-shadow:         0px -2px 13px rgba(0, 129, 0, 0.9);
+    }
+    
+    #botonHerramientas:hover {
+        height: 80px;
+        -webkit-box-shadow: 0px -2px 13px rgba(137, 45, 223, 0.9);
+        -moz-box-shadow:    0px -2px 13px rgba(137, 45, 223, 0.9);
+        box-shadow:         0px -2px 13px rgba(137, 45, 223, 0.9);
+    }
+    
+    #botonAdd {
+        margin-left: -80px;
+        background-color:green;
+    }
+    
+    #botonHerramientas {
+        margin-left: 80px;
+        background-color: blueviolet;
     }
     
     /**
@@ -77,12 +157,14 @@
     
     .postTexto .mensaje {
         font-size: 14px;
+        margin-top: -5px;
+        line-height: 19px;
     }
     
     .postTexto .dispositivo {
         float:right;
         font-size: 10px;
-    }
+    }    
 }
  
 @media screen and (max-width:999px) {

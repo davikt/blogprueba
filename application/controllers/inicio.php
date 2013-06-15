@@ -38,7 +38,7 @@ class Inicio extends CI_Controller {
             'posts' => $losPosts
         );
         
-        $this->load->view('main_view', $setUpPage);
+        $this->load->view('pages/main_view', $setUpPage);
     }
 }
 

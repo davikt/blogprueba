@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="MessageLogger.php" server="192.168.1.5//var/www/" local="130076623590000000" remote="130076623590000000" Dst="1" />
+<file name="Sleeper.php" server="192.168.1.5//var/www/" local="130076623590000000" remote="130076623590000000" Dst="1" />
+<file name="BandwidthMonitorPlugin.php" server="192.168.1.5//var/www/" local="130076623590000000" remote="130076623590000000" Dst="1" />
+<file name="RedirectingPlugin.php" server="192.168.1.5//var/www/" local="130076623590000000" remote="130076623590000000" Dst="1" />
+<file name="Logger.php" server="192.168.1.5//var/www/" local="130076623590000000" remote="130076623590000000" Dst="1" />
+<file name="ReporterPlugin.php" server="192.168.1.5//var/www/" local="130076623590000000" remote="130076623590000000" Dst="1" />
+<file name="LoggerPlugin.php" server="192.168.1.5//var/www/" local="130076623590000000" remote="130076623590000000" Dst="1" />
+<file name="AntiFloodPlugin.php" server="192.168.1.5//var/www/" local="130076623590000000" remote="130076623590000000" Dst="1" />
+<file name="DecoratorPlugin.php" server="192.168.1.5//var/www/" local="130076623590000000" remote="130076623590000000" Dst="1" />
+<file name="ImpersonatePlugin.php" server="192.168.1.5//var/www/" local="130076623600000000" remote="130076623600000000" Dst="1" />
+<file name="PopBeforeSmtpPlugin.php" server="192.168.1.5//var/www/" local="130076623600000000" remote="130076623600000000" Dst="1" />
+<file name="Reporter.php" server="192.168.1.5//var/www/" local="130076623600000000" remote="130076623600000000" Dst="1" />
+<file name="ThrottlerPlugin.php" server="192.168.1.5//var/www/" local="130076623600000000" remote="130076623600000000" Dst="1" />
+<file name="Timer.php" server="192.168.1.5//var/www/" local="130076623600000000" remote="130076623600000000" Dst="1" />
+</dwsync>
