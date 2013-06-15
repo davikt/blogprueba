@@ -65,7 +65,7 @@ class User_model extends CI_Model {
       * @param string $pass
       * =======================================================================
       */
-     function cambiarContraseña($email,$pass) {
+     function cambiarPassword($email,$pass) {
          $this->db->query(
                 "update usuarios set pass=\"".$pass."\" where email=\"".$email."\";"
          );

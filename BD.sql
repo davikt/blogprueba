@@ -17,7 +17,7 @@ create table posts (
     texto varchar(600) not null,
     autor varchar(600) not null,
     dispositivo varchar(600) not null,
-    active int(1) not null default '0'
+    active int(1) not null default '1'
 );
 
 alter table posts add constraint fk_email foreign key (autor) 

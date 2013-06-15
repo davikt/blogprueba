@@ -1,0 +1,34 @@
+@media screen {
+    
+    /**
+     * ==================================================
+     * Reglas CSS generales de la página
+     * ==================================================
+     */
+    #passwordPage {
+        background-color:rgba(0,0,0,0.5) !important;
+    }
+    
+    #eligeOpcion {
+        text-align: center;
+    }
+    
+    #datosPass {
+        text-align: center;
+    }
+    
+    #datosPass .ui-submit {
+        margin-top: 20px;
+    }
+    
+    /**
+     * ==================================================
+     * Reglas CSS del login_form
+     * ==================================================
+     */
+    
+    .error {
+        color:red;
+        font-weight: bold;
+    }
+}

@@ -31,7 +31,7 @@ function compruebaLogin() {
             window.location.href="/";
         }
     }).fail(function() {
-        console.log("fail");
+        console.log("fail(comprueba-login)");
     });
 
 }
@@ -41,7 +41,7 @@ function hazRegistro() {
     
     $.ajax({
         dataType: "text",
-        url: "/login/guardarRegistro",
+        url: "/user/guardarRegistro",
         type: "post",
         data: "email="+email.val()
     }).done(function(e) {
@@ -65,7 +65,7 @@ function hazRegistro() {
             $('#mensaje').text('Ha ocurrido un error, pruebe de nuevo.');
         }
     }).fail(function() {
-        console.log("fail");
+        console.log("fail(haz-registro)");
     });
 }
 

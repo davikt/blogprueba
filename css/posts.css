@@ -1,0 +1,26 @@
+@media screen {
+    
+    /**
+     * ==================================================
+     * Reglas CSS generales de la página
+     * ==================================================
+     */
+    #addPostPage {
+        background-color:rgba(0,0,0,0.5) !important;
+    }
+    
+    #datosPost .ui-submit {
+        margin-top: 20px;
+    }
+    
+    /**
+     * ==================================================
+     * Reglas CSS del login_form
+     * ==================================================
+     */
+    
+    .error {
+        color:red;
+        font-weight: bold;
+    }
+}

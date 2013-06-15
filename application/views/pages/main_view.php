@@ -18,9 +18,10 @@
                         }
                     ?>
                 </div>
+                <div id="cargarMas">Cargar Más Posts</div>
                 <?php if($this->session->userdata('autorizacion')=="autorizado") { ?>
                     <div id="botonAdd">
-                        <a href="/post/addForm" data-rel="dialog">
+                        <a href="/posts/addForm" data-rel="dialog">
                             <img src="/img/plus.png" alt="llave"/>
                         </a>
                     </div>

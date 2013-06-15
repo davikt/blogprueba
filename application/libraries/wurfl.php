@@ -9,6 +9,7 @@ class Wurfl {
         
         $this->wurflObj = new TeraWurfl();
         $this->wurflObj->getDeviceCapabilitiesFromRequest();
+        
     }
     
     public function obtenerModelo() {
@@ -24,6 +25,10 @@ class Wurfl {
         $device.=$this->wurflObj->getDeviceCapability('model_name');
         $device.=" (".$this->wurflObj->getDeviceCapability('brand_name').")";
         return $device;
+    }
+    
+    public function obtenCaract($caract) {
+        return $this->wurflObj->getDeviceCapability($caract);
     }
 }
 

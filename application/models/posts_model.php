@@ -33,19 +33,60 @@ class Posts_model extends CI_Model {
                 $elPost= new Post();
                     $elPost->setId($row->id);
                     $elPost->setFecha($row->fecha);
-                    $elPost->setTexto($row->texto);
+                    $elPost->setTexto(html_entity_decode($row->texto));
                     $elPost->setAutor($row->autor);
                     $elPost->setDispositivo($row->dispositivo);
                     $elPost->setActive($row->active);
               
                 array_push($losPosts,$elPost);
             }
-           
-           
         }
         
         return $losPosts;
     }
     
+    function addPost($elPost) {
+        $this->db->query("insert into 
+            posts(texto,autor,dispositivo) values(
+                \"".$elPost->getTexto()."\",
+                \"".$elPost->getAutor()."\",
+                \"".$elPost->getDispositivo()."\"
+            )");
+    }
+    
+    function obtenerPostPorId($id) {
+        $this->load->library('post');
+        $elPost=new Post();
+        
+        $query=$this->db->query("select * from posts where id=\"".$id."\"");
+        
+        $row=$query->result();
+        $row=$row[0];
+        $elPost->setId($row->id);
+        $elPost->setFecha($row->fecha);
+        $elPost->setTexto(html_entity_decode($row->texto));
+        $elPost->setAutor($row->autor);
+        $elPost->setDispositivo($row->dispositivo);
+        $elPost->setActive($row->active);
+        
+        return $elPost;
+    }
+    
+    /**
+     * Por ahora sólo edita el contenido, esta función debe ser revisada para
+     * que sea pobile la edición de propietario y active.
+     * @param Post $elPost
+     */
+    function editarPost($elPost) {
+        $this->load->library('post');
+        
+        $this->db->query("update posts 
+                            set texto=\"".$elPost->getTexto()."\"
+                            where id=\"".$elPost->getId()."\"");
+    }
+    
+    function eliminarPost($id) {
+        $this->db->query("update posts set active='0' where id=\"".$id."\"");
+    }
 
 }

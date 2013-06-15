@@ -17,7 +17,7 @@ class Login extends CI_Controller {
         
         $setUpPage=array(
             'titulo' => 'Login',
-            'css' => 'inicio.css',
+            'css' => array('inicio.css'),
             'scripts' => Array('login_form.js','login.js')
         );
         
@@ -34,7 +34,7 @@ class Login extends CI_Controller {
         
         $setUpPage=array(
             'titulo' => 'LoginForm',
-            'css' => 'login.css',
+            'css' => array('login.css'),
             'scripts' => Array('login_form.js')
         );        
         
@@ -60,38 +60,9 @@ class Login extends CI_Controller {
         
     }
     
-    function guardarRegistro() {
-        $email=$this->input->post('email');
-        $pass=substr(md5(rand()),0,16);
-        
-        $this->load->model('user_model');
-        
-        $existe=$this->user_model->existeUsuario($email);
-        if($existe=='1') {
-            echo "usuario-ya-registrado";
-        } else {
-            $this->user_model->anadirUsuario($email,sha1($pass));
-            
-            $this->load->library('mail');
-            $text="
-                ¡Enhorabuena! Acabas de registrarte en el MicroBlog.\n
-                
-                Ahora puedes iniciar sesión usando tu dirección de correo
-                y la contraseña: ".$pass."\n
-                
-                ¡Un saludo!
-            ";
-            $this->mail->setEmail($email);
-            $this->mail->setAsunto('Registro en el MicroBlog');
-            $this->mail->setMensaje($text);
-            
-            $this->mail->send();
-            
-            echo "usuario-registrado";
-        }
-    }
-    
     function doLogout() {
+        
+        $this->load->view("helpers/logout_msg");
         
         $this->session->set_userdata(array(
             'autorizacion' => 'no-autorizado',

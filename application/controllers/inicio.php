@@ -28,13 +28,13 @@ class Inicio extends CI_Controller {
             $elPost->setMes(strtoupper(date("M",strtotime($elPost->getFecha()))));
         }
         
-        
         /**
          * Finalmente, enviamos la página al navegador.
          */
         $setUpPage=array(
             'titulo' => 'Inicio',
-            'css' => 'inicio.css',
+            'css' => array('inicio.css'),
+            'scripts' => array('inicio.js'),
             'posts' => $losPosts
         );
         
