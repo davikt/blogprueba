@@ -36,6 +36,16 @@ function compruebaLogin() {
 
 }
 
+/**
+ * ==========================================================================
+ * Función que busca en el DOM los datos del formulario de registro y los 
+ * conduce a la función adecuada de PHP para llevar a cabo las acciones de
+ * registro... Mientras tanto indica al usuario el estado.
+ * 
+ * Muestra también las validaciones pertinentes.
+ *
+ * ==========================================================================
+ */
 function hazRegistro() {
     var email = $('#email');
     

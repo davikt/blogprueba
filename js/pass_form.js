@@ -1,4 +1,17 @@
 
+/**
+ * ==========================================================================
+ * Función que valida y cambia si es pertinente la contraseña del usuario
+ * conduciendo la información del DOM a la función de PHP /user/cambiarPassword
+ * 
+ * Para que la contraseña del usuario no viajara por la red en texto plano,
+ * se ha añadido un plugin de JQuery, que nos permite hacer de lado del cli-
+ * ente el hasheo SHA1 del string que introduzca el usuario y así enviar, di-
+ * rectamente la contraseña cifrada.
+ * 
+ * Devuelve si el cambio ha sido correcto.
+ * ==========================================================================
+ */
 
 function passwordForm() {
     var oldPass = $('#oldPassword');

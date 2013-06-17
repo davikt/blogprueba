@@ -1,12 +1,24 @@
 <?php
 
 class Posts extends CI_Controller {
+    
+    /**
+     * =======================================================================
+     * Si alguien accediese a /login sería redireccionado a la raíz del sitio.
+     * =======================================================================
+     */
     function index() {
         $this->load->view("helpers/script_redirection", array(
             'location' => '/'
         ));
     }
     
+    
+    /**
+     * =======================================================================
+     * Carga el formulario para añadir un post.
+     * =======================================================================
+     */
     function addForm() {
         
         $setUpPage=array(
@@ -18,6 +30,13 @@ class Posts extends CI_Controller {
         $this->load->view('pages/addpost_form', $setUpPage);
     }
     
+    /**
+     * =======================================================================
+     * Carga el formulario para editar un post. Recuperando la información
+     * del mismo de la BD.
+     * @param int $id
+     * =======================================================================
+     */
     function editForm($id) {
         $this->load->library('post');
         $this->load->model('posts_model');
@@ -34,6 +53,14 @@ class Posts extends CI_Controller {
         $this->load->view('pages/editpost_form', $setUpPage);
     }
     
+    /**
+     * =======================================================================
+     * Función que se utiliza a la hora de crear un post. Lo recibe mediante
+     * el parámetro POST codificado para URL. Lo decodifica. Le pasa un 
+     * xss_clean y lo guarda en la base de datos. Junto con el nombre de usuario
+     * y el dispositivo, que obtiene de la librería wurfl.
+     * =======================================================================
+     */
     function savePost() {
         $this->load->helper('security');
         $texto=urldecode($this->input->post("textoPost"));
@@ -61,6 +88,15 @@ class Posts extends CI_Controller {
         }        
     }
     
+    /**
+     * =======================================================================
+     * Función utilizada por el editForm para guardar la información que el
+     * usuario ha modificado.
+     * 
+     * Realiza comprobaciones de seguridad y guarda la información.
+     * @param ind $id
+     * =======================================================================
+     */
     function editPost($id) {
         $this->load->helper('security');
         $texto=urldecode($this->input->post("textoPost"));
@@ -96,6 +132,17 @@ class Posts extends CI_Controller {
         } 
     }
     
+    
+    /**
+     * =======================================================================
+     * Función utilizada en el inicio de la página para cargar los posts.
+     * Es llamada dinámicamente para ir cargando los posts de 5 en 5.
+     * Se le indica una posición desde la cual entregar posts y el número
+     * de posts que se entregarán.
+     * @param int $inicio
+     * @param int $cantidad
+     * =======================================================================
+     */
     function cargarHtmlPosts($inicio,$cantidad) {
         $this->load->model('posts_model');
         $this->load->library('post');
@@ -114,6 +161,12 @@ class Posts extends CI_Controller {
         }
     }
     
+    /**
+     * =======================================================================
+     * Desactiva un post por ID.
+     * @param int $id
+     * =======================================================================
+     */
     function eliminarPost($id) {
         $this->load->model('posts_model');
         $elPostOriginal=$this->posts_model->obtenerPostPorId($id);
@@ -129,6 +182,14 @@ class Posts extends CI_Controller {
         }
     }
     
+    /**
+     * =======================================================================
+     * Activa o desactiva un post según el parámetro mode que se 
+     * le pase por post
+     * @param int $id 
+     * @param string $mode
+     * =======================================================================
+     */
     function switchPost() {
         if($this->session->userdata('administrador')=="no-autorizado") {
             echo "no-autorizado";

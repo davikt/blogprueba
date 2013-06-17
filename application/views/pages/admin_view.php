@@ -12,6 +12,7 @@
                     <a href="/" rel="external">
                         <img src="/img/home-blank.png" alt="casa" />Ir al inicio</a>
                 </div>
+                <?php if(isset($losPosts)) { ?>
                 <div id="tablaPosts">
                     <table id="losPosts">
                         <thead>
@@ -49,6 +50,36 @@
                         </tbody>
                     </table>
                 </div>
+                <?php } ?>
+                <?php if(isset($losUsuarios)) { ?>
+                <div id="tablaUsuarios">
+                    <table id="losUsuarios">
+                        <thead>
+                            <tr>
+                                <th>Activo</th>
+                                <th>email</th>
+                                <th>Reset Password</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                    <?php foreach($losUsuarios as $elUsuario) { ?>
+                            <tr>
+                                <td>
+                                    <div data-role="fieldcontain" data-id="<?=$elUsuario["email"]?>">
+                                        <select name="active" id="active-switch" data-role="slider">
+                                            <option value="0" <?=($elUsuario["active"]==='1') ? "selected" : "" ?> />Off</option>
+                                            <option value="1" <?=($elUsuario["active"]==='1') ? "selected" : "" ?> />On</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <td><?=$elUsuario["email"]?></td>
+                                <td><input type="button" value="Resetear Contraseña" data-id="<?=$elUsuario["email"]?>" onclick="resetPassword(this)"/></td>
+                            </tr>
+                    <?php } ?>
+                        </tbody>
+                    </table>
+                </div>
+                <?php } ?>
                 <!-- El menu -->
                 <?php if($this->session->userdata('autorizacion')=="autorizado") { ?>
                     <div id="botonAdd">

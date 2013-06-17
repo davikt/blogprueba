@@ -45,16 +45,17 @@ class Login extends CI_Controller {
             $esAdmin='no-autorizado';
         }
         
-        /**
-         * Escribir los datos de sesión
-         */
-        $this->session->set_userdata(array(
-            'autorizacion' => 'autorizado',
-            'administrador' => $esAdmin,
-            'usuario' => $email        
-        ));
+        $esCorrecto=$this->user_model->comprobarUsuario($email,$pass);
         
-        echo $this->user_model->comprobarUsuario($email,$pass);
+        if($esCorrecto=="autorizado") {
+            $this->session->set_userdata(array(
+                'autorizacion' => 'autorizado',
+                'administrador' => $esAdmin,
+                'usuario' => $email        
+            ));
+        }
+        
+        echo $esCorrecto;
         
     }
     

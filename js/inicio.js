@@ -4,6 +4,9 @@
  * ==========================================================================
  */
 
+/**
+ * Llama a la función de desactivar post de PHP para desactivarlo.
+ */
 function eliminarPost(element) {
     var id=$(element).next().attr('data-id');
     //$(element).find('img').attr('src','/img/loading.gif').attr('width','25');
@@ -35,6 +38,13 @@ function eliminarPost(element) {
 
 $(document).ready(function() {
     
+    /**
+     * =======================================================================
+     * Botón de Cargar Más. Pregunta a la función de PHP mediante AJAX y 
+     * carga los resultados. Cuando no hay más resultados muestra un men-
+     * saje de "No hay mas Posts".
+     * =======================================================================
+     */
     $('#cargarMas').click(function() {
         var actual=$('.post').length;
         
@@ -46,11 +56,6 @@ $(document).ready(function() {
             type: "post"
         }).done(function(e) {
             var resp = $.trim(e);
-            
-//            $(resp).children('#botonEliminar').each(function(index,element) {
-//                eliminarPost(element);
-//            });
-            
             $('#losPosts').append(resp);
             $("#cargarMas").html('Cargar Más Posts');
             
@@ -61,35 +66,5 @@ $(document).ready(function() {
             console.log("fail(cargar-mas)");
         });
     });
-
-    
-//    $('.botonEliminar').each(function(index, element) {
-//        $(element).click(function() {
-//            var id=$(this).next().attr('data-id');
-//            $(element).find('img').attr('src','/img/loading.gif').attr('width','25');
-//            
-//            $.ajax({
-//                dataType: "html",
-//                url: "/posts/eliminarPost/"+id,
-//                type: "post"
-//            }).done(function(e) {
-//                var resp = $.trim(e);
-//
-//                if(resp=="borrado-correcto") {
-//                    $(element).next().next().remove();
-//                    $(element).next().remove();
-//                    $(element).remove();
-//                    //$('.post[data-id='+id+']').remove();
-//                } else {
-//                    $(element).children('span').remove();
-//                    $(element).find('img').attr('src','/img/delete.gif');
-//                    $(element).append('<span style="margin-top:-3px">Error al borrar.</span>')
-//                    setTimeout(function() {$(element).children('span').remove();},1000);
-//                }
-//            }).fail(function() {
-//                console.log("fail(cargar-mas)");
-//            });
-//        });
-//    });
     
 });

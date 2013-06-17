@@ -8,6 +8,7 @@ class Posts_model extends CI_Model {
     }
     
     /**
+     * =======================================================================
      * Función a la que se le pasa un rango de posts, lo
      * consulta en la BD y devuelve un array de objetos 
      * Post sólo con los que se le ha pedido.
@@ -15,6 +16,7 @@ class Posts_model extends CI_Model {
      * @param int $cantidad
      * @param int $inicio Si no se recive toma el valor 0
      * @return array(Post) Devuelve un array de objetos Post
+     * =======================================================================
      */
     
     function obtenerPosts($cantidad,$inicio=0) {
@@ -45,6 +47,13 @@ class Posts_model extends CI_Model {
         return $losPosts;
     }
     
+    /**
+     * =======================================================================
+     * Devuelve el post(objeto) correspondiente al id pasado como parámetro.
+     * @param int $id
+     * @return \Post
+     * =======================================================================
+     */
     function obtenerPostPorId($id) {
         $this->load->library('post');
         $elPost=new Post();
@@ -63,6 +72,12 @@ class Posts_model extends CI_Model {
         return $elPost;
     }
     
+    /**
+     * =======================================================================
+     * Añade un objeto Post a la BD.
+     * @param Post $elPost
+     * =======================================================================
+     */
     function addPost($elPost) {
         $this->db->query("insert into 
             posts(texto,autor,dispositivo) values(
@@ -73,9 +88,11 @@ class Posts_model extends CI_Model {
     }
     
     /**
+     * =======================================================================
      * Por ahora sólo edita el contenido, esta función debe ser revisada para
      * que sea pobile la edición de propietario y active.
      * @param Post $elPost
+     * =======================================================================
      */
     function editarPost($elPost) {
         $this->load->library('post');
@@ -85,14 +102,33 @@ class Posts_model extends CI_Model {
                             where id=\"".$elPost->getId()."\"");
     }
     
+    /**
+     * =======================================================================
+     * Desactiva el post que se le pase por id
+     * @param int $id
+     * =======================================================================
+     */
     function eliminarPost($id) {
         $this->db->query("update posts set active='0' where id=\"".$id."\"");
     }
     
+    /**
+     * =======================================================================
+     * Activa o desactiva un post.
+     * @param int $id
+     * @param 0 || 1 $mode
+     * =======================================================================
+     */
     function switchPost($id,$mode) {
         $this->db->query("update posts set active='".$mode."' where id=\"".$id."\"");
     }
     
+    /**
+     * =======================================================================
+     * Obtiene todos los posts de la BD y los devuelve como un array de Posts.
+     * @return array(Post)
+     * =======================================================================
+     */
     function dameTodo() {
         $losPosts=array();
         

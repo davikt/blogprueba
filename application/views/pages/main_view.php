@@ -6,6 +6,7 @@
         ?>
     </head>
     <body>
+        <noscript><center><h3>¡Parece que tienes desactivado Javascript! Debes activarlo para ver la página completa.</h3></center></noscript>
         <div data-role="page" id="main">
             <div id="cuerpo">
                 <div id="losPosts">

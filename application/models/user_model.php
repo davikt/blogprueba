@@ -75,13 +75,10 @@ class User_model extends CI_Model {
       * =======================================================================
       * Activa/Desactiva un usuario, indicado por el $email.
       * @param string $email
+      * @param 1 || 0 $active 
       * =======================================================================
       */
-     function toggleUsuario($email) {
-         $query = $this->db->query("select active from usuario where email=\"".$email."\";");
-         $active = $query->row()->active;
-         $active=($active==1) ? 0 : 1;
-         
+     function toggleUsuario($email,$active) {         
          $query = $this->db->query(
                 "update usuarios set active=\"".$active."\" where email=\"".$email."\";"
          );
@@ -113,9 +110,30 @@ class User_model extends CI_Model {
      function esAdmin($email) {
          $query=$this->db->query("select admin from usuarios where email=\"".$email."\" and active='1';");
          
-         $esAdmin=$query->row()->admin;
+         if ($query->num_rows() > 0) {
+            $esAdmin=$query->row()->admin;
+         } else {
+             $esAdmin='0';
+         }
          
          return $esAdmin;
+     }
+     
+     function obtenerTodos() {
+         $query=$this->db->query("select active,email from usuarios");
+         
+         $arrayUsuarios=array();
+         
+         foreach($query->result() as $row) {
+             $user=array(
+                 'email' => $row->email,
+                 'active' => $row->active
+             );
+             
+             array_push($arrayUsuarios,$user);
+         }
+         
+         return $arrayUsuarios;
      }
 }
 
