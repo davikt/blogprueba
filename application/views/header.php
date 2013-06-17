@@ -12,7 +12,7 @@
 <?php
     if(!isset($css)) {$css=array();}
         foreach($css as $file) {
-            echo "<link rel=\"stylesheet\" href=\"/css/".$file."\" />";
+            echo "<link rel=\"stylesheet\" href=\"/css/".$file."\">";
         }
 ?>
 

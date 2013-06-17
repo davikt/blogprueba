@@ -1,5 +1,5 @@
 <?php if($elPost->getAutor()==$this->session->userdata('usuario')) { ?>
-        <div class="botonEliminar">
+        <div class="botonEliminar" onclick="eliminarPost(this)">
             <img src="/img/delete.png" alt="eliminar" />
         </div>
     <?php } ?>

@@ -29,11 +29,21 @@ class Inicio extends CI_Controller {
         }
         
         /**
+         * Comprobamos si es admin... Y si lo es. Cargamos sus css.
+         */
+        $css=array('inicio.css');
+        
+        if($this->session->userdata('administrador')==='autorizado') {
+            array_push($css,'admin.css');
+        }
+        
+        
+        /**
          * Finalmente, enviamos la página al navegador.
          */
         $setUpPage=array(
             'titulo' => 'Inicio',
-            'css' => array('inicio.css'),
+            'css' => $css,
             'scripts' => array('inicio.js'),
             'posts' => $losPosts
         );

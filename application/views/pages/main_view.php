@@ -22,19 +22,31 @@
                 <?php if($this->session->userdata('autorizacion')=="autorizado") { ?>
                     <div id="botonAdd">
                         <a href="/posts/addForm" data-rel="dialog">
-                            <img src="/img/plus.png" alt="llave"/>
+                            <img src="/img/plus.png" alt="signo mas"/>
                         </a>
                     </div>
                     <div id="botonLogin">
                         <a href="/login/doLogout">
-                            <img src="/img/logout.png" alt="llave"/>
+                            <img src="/img/logout.png" alt="puerta"/>
                         </a>
                     </div>
                     <div id="botonHerramientas">
                         <a href="/user/editForm" data-rel="dialog">
-                            <img src="/img/gear.png" alt="llave"/>
+                            <img src="/img/lock.png" alt="candado"/>
                         </a>
                     </div>
+                    <?php if($this->session->userdata('administrador')=='autorizado') { ?>
+                        <div id="botonCensura">
+                            <a href="/admin/managePosts" rel="external">
+                                <img src="/img/gear.png" alt="candado" />
+                            </a>
+                        </div>
+                        <div id="botonUsuarios">
+                            <a href="/admin/manageUsers" rel="external">
+                                <img src="/img/group.png" alt="usuarios" />
+                            </a>
+                        </div>
+                    <?php } ?>
                 <?php } else { ?>
                     <div id="botonLogin">
                         <a href="/login/loginForm" data-rel="dialog">

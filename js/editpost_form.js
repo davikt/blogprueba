@@ -13,7 +13,11 @@ function editPost() {
     }).done(function(e) {
         var resp = $.trim(e);
         if (resp=="guardado") {
-            window.location.href="/";
+            if(/managePosts/.test(window.location.href)) {
+                window.location.href="/admin/managePosts";
+            } else {
+                window.location.href="/";
+            }
         } else {
             $('#mensaje').addClass('error');
             $('#mensaje').text(resp);

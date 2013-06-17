@@ -2,6 +2,9 @@
 
 class Posts extends CI_Controller {
     function index() {
+        $this->load->view("helpers/script_redirection", array(
+            'location' => '/'
+        ));
     }
     
     function addForm() {
@@ -68,14 +71,11 @@ class Posts extends CI_Controller {
         $elPostOriginal=$this->posts_model->obtenerPostPorId($id);
         
         if($autor=="") {
-            $this->load->view("output_msg",array(
-                'msg','Error: No hay ninguna sesión iniciada.'
+            $this->load->view("helpers/output_msg",array(
+                'msg' => 'Error: No hay ninguna sesión iniciada.'
             ));
-        } elseif ($autor!=$elPostOriginal->getAutor()) {
-            $this->load->view("output_msg",array(
-                'msg','Error: Usted no es el propietario del post.'
-            ));
-        } elseif ($autor==$elPostOriginal->getAutor()) {
+        } elseif (($autor==$elPostOriginal->getAutor())||
+                ($this->session->userdata('administrador')=="autorizado")) {
             $this->load->library('wurfl');
             $disp=$this->wurfl->obtenerModelo()." (".$this->wurfl->obtenerMarca().")";
 
@@ -89,6 +89,10 @@ class Posts extends CI_Controller {
             $this->posts_model->editarPost($this->post);
             
             echo "guardado";
+        } elseif ($autor!=$elPostOriginal->getAutor()) {
+            $this->load->view("helpers/output_msg",array(
+                'msg' => 'Error: Usted no es el propietario del post.'
+            )); 
         } 
     }
     
@@ -123,6 +127,22 @@ class Posts extends CI_Controller {
             $this->posts_model->eliminarPost($id);
             echo "borrado-correcto";
         }
+    }
+    
+    function switchPost() {
+        if($this->session->userdata('administrador')=="no-autorizado") {
+            echo "no-autorizado";
+        } else {
+        
+            $this->load->model('posts_model');
+            $idPost=$this->input->post('id');
+            $mode=($this->input->post('mode')=="on")?"1":"0";
+            
+            $this->posts_model->switchPost($idPost,$mode);
+            
+            echo "modificacion-correcta";
+        
+        }        
     }
 }
 ?>

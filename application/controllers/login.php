@@ -11,18 +11,9 @@
 class Login extends CI_Controller {
     function index() {
         
-        /**
-         * Se diseña y envía un diálogo de login al usuario.
-         */
-        
-        $setUpPage=array(
-            'titulo' => 'Login',
-            'css' => array('inicio.css'),
-            'scripts' => Array('login_form.js','login.js')
-        );
-        
-        $this->load->view('pages/blank', $setUpPage);
-        
+        $this->load->view("helpers/script_redirection", array(
+            'location' => '/'
+        ));
     }
     
     function loginForm() {
@@ -48,11 +39,18 @@ class Login extends CI_Controller {
         
         $this->load->model('user_model');
         
+        if($this->user_model->esAdmin($email)==='1') {
+            $esAdmin='autorizado';
+        } else {
+            $esAdmin='no-autorizado';
+        }
+        
         /**
          * Escribir los datos de sesión
          */
         $this->session->set_userdata(array(
             'autorizacion' => 'autorizado',
+            'administrador' => $esAdmin,
             'usuario' => $email        
         ));
         
@@ -66,6 +64,7 @@ class Login extends CI_Controller {
         
         $this->session->set_userdata(array(
             'autorizacion' => 'no-autorizado',
+            'administrador' => 'no-autorizado',
             'usuario' => ''
         ));
         

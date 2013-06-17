@@ -146,6 +146,5 @@ $(document).ready(function() {
         $('label[for=pass]').css('display','none');
         $('#datosLogin .ui-submit .ui-btn-text').text('Registrarme');
     });
-    
 });
 

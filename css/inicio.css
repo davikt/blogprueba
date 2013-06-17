@@ -47,14 +47,13 @@
         -moz-box-shadow:    0px 0px 10px rgba(175, 219, 233, 0.9);
         box-shadow:         0px 0px 10px rgba(175, 219, 233, 0.9);
         background-color: #fff; 
-        background-image: 
-            linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
-            linear-gradient(#eee .1em, transparent .1em);
+        background-image:linear-gradient(#eee .1em, transparent .1em);
         background-size: 100% 1.2em;
         
     }
     
     #cargarMas {
+        height: 20px;
         margin-top: 30px;
         margin-bottom: 100px;
         text-align: center;
@@ -80,20 +79,20 @@
      * ==================================================
      */
     
-    #botonLogin, #botonAdd, #botonHerramientas {
+    #botonLogin, #botonAdd, #botonHerramientas, 
+    #botonCensura, #botonUsuarios {
         position: fixed;
         width: 70px;
         height: 70px;
         bottom: 0px;
         left: 50%;
-        margin-left: -35px;
-        background-color: orange;
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
         text-align: center;
     }
     
-    #botonLogin img, #botonAdd img, #botonHerramientas img {
+    #botonLogin img, #botonAdd img, #botonHerramientas img, 
+    #botonCensura img, #botonUsuarios img {
         margin-top: 3px;
     }
     
@@ -121,6 +120,11 @@
     #botonAdd {
         margin-left: -115px;
         background-color:green;
+    }
+    
+    #botonLogin {
+        margin-left: -35px;
+        background-color: orange;
     }
     
     #botonHerramientas {
@@ -264,11 +268,15 @@
         height: 32.5px;
     }
     
+    #botonLogin {
+        margin-left: -25px;
+    }
+    
     #botonAdd {
-        margin-left: -90px;
+        margin-left: -80px;
     }
     
     #botonHerramientas {
-        margin-left: 22px;
+        margin-left: 30px;
     }
 }

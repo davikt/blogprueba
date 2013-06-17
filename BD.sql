@@ -7,7 +7,8 @@ use blogprueba;
 create table usuarios(
     email varchar(600) primary key  not null,
     pass varchar(100) not null,
-    active int(1) not null default '1'
+    active int(1) not null default '1',
+    admin int(1) not null default '0'
 );
 
 create table posts (

@@ -92,7 +92,7 @@ class User_model extends CI_Model {
       * Recibe un email y devuelve el número de veces que ese email se encuentra
       * en la tabla usuarios.  
       * @param string $email
-      * @return int 0 || 1
+      * @return int 0 || 1 (si devuelve otra cosa, preocúpate)
       * =======================================================================
       */
      function existeUsuario($email) {
@@ -101,6 +101,21 @@ class User_model extends CI_Model {
          $existe= $query->row()->existentes;
          
          return $existe;
+     }
+     
+     /**
+      * =======================================================================
+      * Comprueba si el usuario es administrador.
+      * @param string $email
+      * @return int 0 || 1
+      * =======================================================================
+      */
+     function esAdmin($email) {
+         $query=$this->db->query("select admin from usuarios where email=\"".$email."\" and active='1';");
+         
+         $esAdmin=$query->row()->admin;
+         
+         return $esAdmin;
      }
 }
 

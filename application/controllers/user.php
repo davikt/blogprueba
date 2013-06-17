@@ -2,6 +2,9 @@
 
 class User extends CI_Controller {
     function index() {
+        $this->load->view("helpers/script_redirection", array(
+            'location' => '/'
+        ));
     }
     
     function editForm() {

@@ -1,0 +1,243 @@
+
+/**
+ * ==================================================
+ * Imports para diálogos y otros necesarios
+ * ==================================================
+ */
+@import url('/css/login.css');
+@import url('/css/user.css');
+@import url('/css/posts.css');
+
+@media screen {
+    
+    /**
+     * ==================================================
+     * Reglas CSS generales de la página
+     * ==================================================
+     */
+    
+    #admin {
+        display:block;
+        background-color:rgb(231,231,231);
+        background-image: linear-gradient(white 2px, transparent 2px),
+            linear-gradient(90deg, white 2px, transparent 2px),
+            linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px);
+        background-size:100px 100px, 100px 100px, 20px 20px, 20px 20px;
+        background-position:-2px -2px, -2px -2px, -1px -1px, -1px -1px;
+    }
+    
+    #cuerpo {
+        margin:0 auto 0 auto;
+	width:800px;
+    }
+    
+    #home {
+        background-color: lightblue;
+        display: inline;
+        padding: 4px;
+        padding-left: 11px;
+        padding-right: 11px;
+        top:15px;
+        position:absolute;
+        border-radius: 25px;
+        border: solid 1px rgb(81,199,236);
+        font-size: 1em;
+    }
+    
+    #home:hover {
+        box-shadow: 0 0 5px rgb(81,199,236);
+    }
+    
+    #home a {
+        color: rgb(110,110,110);
+        text-decoration: none;
+        
+    }
+    
+    #home img {
+        background-image: url('/img/home.png');
+        vertical-align:bottom;
+        margin-right: 3px;
+    }
+    
+    #home:hover a {
+        color: rgb(250,250,250);
+        text-shadow: none;
+    }
+    
+    #home:hover img {
+        background-image: url('/img/home-hover.png');
+    }
+    
+    /**
+     * ==================================================
+     * Estilos para el menú del pié.
+     * ==================================================
+     */
+    
+    #botonLogin, #botonAdd, #botonHerramientas, 
+    #botonCensura, #botonUsuarios {
+        position: fixed;
+        width: 70px;
+        height: 70px;
+        bottom: 0px;
+        left: 50%;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        text-align: center;
+        z-index: 0;
+    }
+    
+    #botonLogin img, #botonAdd img, #botonHerramientas img, 
+    #botonCensura img, #botonUsuarios img {
+        margin-top: 3px;
+    }
+    
+    #botonLogin:hover {
+        height: 80px;
+        -webkit-box-shadow: 0px -2px 13px rgba(255, 165, 0, 0.9);
+        -moz-box-shadow:    0px -2px 13px rgba(255, 165, 0, 0.9);
+        box-shadow:         0px -2px 13px rgba(255, 165, 0, 0.9);
+    }
+    
+    #botonAdd:hover {
+        height: 80px;
+        -webkit-box-shadow: 0px -2px 13px rgba(0, 129, 0, 0.9);
+        -moz-box-shadow:    0px -2px 13px rgba(0, 129, 0, 0.9);
+        box-shadow:         0px -2px 13px rgba(0, 129, 0, 0.9);
+    }
+    
+    #botonHerramientas:hover {
+        height: 80px;
+        -webkit-box-shadow: 0px -2px 13px rgba(137, 45, 223, 0.9);
+        -moz-box-shadow:    0px -2px 13px rgba(137, 45, 223, 0.9);
+        box-shadow:         0px -2px 13px rgba(137, 45, 223, 0.9);
+    }
+    
+    #botonCensura:hover {
+        height: 80px;
+        -webkit-box-shadow: 0px -2px 13px rgba(128, 128, 128, 0.9);
+        -moz-box-shadow:    0px -2px 13px rgba(128, 128, 128, 0.9);
+        box-shadow:         0px -2px 13px rgba(128, 128, 128, 0.9);
+    }
+    
+    #botonUsuarios:hover {
+        height: 80px;
+        -webkit-box-shadow: 0px -2px 13px rgba(0, 0, 140, 0.9);
+        -moz-box-shadow:    0px -2px 13px rgba(0, 0, 140, 0.9);
+        box-shadow:         0px -2px 13px rgba(0, 0, 140, 0.9);
+    }
+    
+    #botonAdd {
+        margin-left: -195px;
+        background-color:green;
+    }
+    
+    #botonLogin {
+        margin-left: -115px;
+        background-color: orange;
+    }
+    
+    #botonHerramientas {
+        margin-left: -35px;
+        background-color: blueviolet;
+    }
+    
+    #botonCensura {
+        margin-left: 45px;
+        background-color: grey;
+    }
+    
+    #botonUsuarios {
+        margin-left: 125px;
+        background-color: darkblue;
+    }
+    
+    /**
+     * ==================================================
+     *  Estilos para Data Tables
+     * ==================================================
+     */
+    
+    #tablaPosts {
+        margin-top: 70px;
+        margin-bottom: 100px;
+    }
+    
+    #tablaPosts tbody {
+        font-size: 0.7em;
+    }
+    
+    .ui-btn-corner-all {
+        -webkit-border-radius: 1.5em;
+        border-radius: 1.5em;
+    }
+    
+    
+}
+
+/**
+ * ==================================================
+ *  Estilos para tablets.
+ * ==================================================
+ */
+@media screen and (max-width:800px) {
+    
+    #cuerpo {
+        width: 90%;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+}
+
+/**
+ * ==================================================
+ *  Estilos para smartphones.
+ * ==================================================
+ */
+    
+@media screen and (max-width:430px) {
+    
+    #cuerpo {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+    
+    #botonAdd, #botonLogin, #botonHerramientas, 
+    #botonCensura, #botonUsuarios {
+        width: 45px;
+        height: 45px;
+    }
+    
+    #botonAdd:hover, #botonLogin:hover, #botonHerramientas:hover, 
+    #botonCensura:hover, #botonUsuarios:hover {
+        height: 60px;
+    }
+    
+    #botonAdd img, #botonLogin img, #botonHerramientas img,
+    #botonCensura img, #botonUsuarios img {
+        width: 32.5px;
+        height: 32.5px;
+    }
+    
+    #botonAdd {
+        margin-left: -135px;
+    }
+    
+    #botonLogin {
+        margin-left: -80px;
+    }
+    
+    #botonHerramientas {
+        margin-left: -25px;
+    }
+    
+    #botonCensura {
+        margin-left: 30px;
+    }
+    
+    #botonUsuarios {
+        margin-left: 85px;
+    }
+}
